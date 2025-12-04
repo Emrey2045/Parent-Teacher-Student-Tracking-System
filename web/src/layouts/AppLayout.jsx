@@ -27,14 +27,14 @@ export default function AppLayout() {
 
     return (
         <div className="flex h-screen bg-gray-100 overflow-hidden">
-            {/* 🔹 Sabit Sidebar */}
+            {/*  Sabit Sidebar */}
             <Sidebar
                 isOpen={sidebarOpen}
                 setIsOpen={setSidebarOpen}
                 role={user?.role}
             />
 
-            {/* 🔹 Sağ içerik alanı */}
+            {/*  Sağ içerik alanı */}
             <div className="flex flex-col flex-1 md:ml-64 min-w-0 transition-all duration-300">
                 {/* Üst Bar */}
                 <header className="bg-white shadow flex justify-between items-center px-4 py-3 sticky top-0 z-10">
@@ -61,7 +61,7 @@ export default function AppLayout() {
 
                         {user && (
                             <span className="hidden sm:block text-gray-600 text-sm">
-                                👋 {user.role?.toUpperCase()}
+                                 {user.role?.toUpperCase()}
                             </span>
                         )}
 
@@ -75,7 +75,7 @@ export default function AppLayout() {
                     </div>
                 </header>
 
-                {/* 📊 İçerik alanı */}
+                {/*  İçerik alanı */}
                 <main className="flex-1 overflow-y-auto p-6">
                     <Outlet />
                 </main>
