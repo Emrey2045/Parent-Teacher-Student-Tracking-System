@@ -78,7 +78,7 @@ router.get("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, students, "Öğrenciler başarıyla listelendi");
     } catch (err) {
-        console.error("❌ /students GET hatası:", err.message);
+        console.error(" /students GET hatası:", err.message);
         return errorResponse(res, "Öğrenciler listelenirken hata oluştu");
     }
 });
@@ -131,7 +131,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, student, "Öğrenci bilgileri getirildi");
     } catch (err) {
-        console.error("❌ /students/:id GET hatası:", err.message);
+        console.error(" /students/:id GET hatası:", err.message);
         return errorResponse(res, "Öğrenci bilgileri alınamadı");
     }
 });
@@ -178,7 +178,7 @@ router.post("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, newStudent, "Yeni öğrenci başarıyla eklendi");
     } catch (err) {
-        console.error("❌ /students POST hatası:", err.message);
+        console.error(" /students POST hatası:", err.message);
         return errorResponse(res, "Öğrenci eklenirken hata oluştu");
     }
 });
@@ -226,7 +226,7 @@ router.patch("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, updated, "Öğrenci bilgileri güncellendi");
     } catch (err) {
-        console.error("❌ /students PATCH hatası:", err.message);
+        console.error(" /students PATCH hatası:", err.message);
         return errorResponse(res, "Öğrenci güncellenirken hata oluştu");
     }
 });
@@ -263,7 +263,7 @@ router.delete("/:id", authMiddleware, async (req, res) => {
         await prisma.student.delete({ where: { id: studentId } });
         return successResponse(res, null, "Öğrenci başarıyla silindi");
     } catch (err) {
-        console.error("❌ /students DELETE hatası:", err.message);
+        console.error(" /students DELETE hatası:", err.message);
         return errorResponse(res, "Öğrenci silinirken hata oluştu");
     }
 });
