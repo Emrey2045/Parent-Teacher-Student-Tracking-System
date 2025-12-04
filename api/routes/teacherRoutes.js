@@ -39,7 +39,7 @@ router.get("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, teachers, "Öğretmenler başarıyla listelendi");
     } catch (err) {
-        console.error("❌ /teachers GET hatası:", err.message);
+        console.error(" /teachers GET hatası:", err.message);
         return errorResponse(res, "Öğretmenler listelenirken hata oluştu");
     }
 });
@@ -76,7 +76,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, teacher, "Öğretmen bilgileri getirildi");
     } catch (err) {
-        console.error("❌ /teachers/:id hatası:", err.message);
+        console.error(" /teachers/:id hatası:", err.message);
         return errorResponse(res, "Öğretmen bilgileri alınamadı");
     }
 });
@@ -117,7 +117,7 @@ router.post("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, newTeacher, "Öğretmen başarıyla eklendi");
     } catch (err) {
-        console.error("❌ /teachers POST hatası:", err.message);
+        console.error(" /teachers POST hatası:", err.message);
         return errorResponse(res, "Öğretmen eklenirken hata oluştu");
     }
 });
@@ -160,7 +160,7 @@ router.patch("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, updatedTeacher, "Öğretmen bilgileri güncellendi");
     } catch (err) {
-        console.error("❌ /teachers PATCH hatası:", err.message);
+        console.error(" /teachers PATCH hatası:", err.message);
         return errorResponse(res, "Öğretmen güncellenirken hata oluştu");
     }
 });
@@ -191,7 +191,7 @@ router.delete("/:id", authMiddleware, async (req, res) => {
         await prisma.teacher.delete({ where: { id: teacherId } });
         return successResponse(res, null, "Öğretmen başarıyla silindi");
     } catch (err) {
-        console.error("❌ /teachers DELETE hatası:", err.message);
+        console.error(" /teachers DELETE hatası:", err.message);
         return errorResponse(res, "Öğretmen silinirken hata oluştu");
     }
 });
