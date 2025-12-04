@@ -21,7 +21,7 @@ export default function Students() {
             setStudents(res.data.data || []);
         } catch (err) {
             console.error("Öğrenciler yüklenirken hata:", err);
-            setError("Öğrenciler yüklenemedi ❌");
+            setError("Öğrenciler yüklenemedi ");
         } finally {
             setLoading(false);
         }
