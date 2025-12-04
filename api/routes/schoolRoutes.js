@@ -61,7 +61,7 @@ router.get("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, schools, "Okullar başarıyla listelendi");
     } catch (err) {
-        console.error("❌ /schools GET hatası:", err.message);
+        console.error(" /schools GET hatası:", err.message);
         return errorResponse(res, "Okullar listelenirken hata oluştu");
     }
 });
@@ -120,7 +120,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, school, "Okul bilgileri başarıyla getirildi");
     } catch (err) {
-        console.error("❌ /schools/:id GET hatası:", err.message);
+        console.error(" /schools/:id GET hatası:", err.message);
         return errorResponse(res, "Okul bilgileri alınırken hata oluştu");
     }
 });
@@ -149,7 +149,7 @@ router.post("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, newSchool, "Yeni okul başarıyla eklendi");
     } catch (err) {
-        console.error("❌ /schools POST hatası:", err.message);
+        console.error(" /schools POST hatası:", err.message);
         return errorResponse(res, "Okul eklenirken hata oluştu");
     }
 });
@@ -177,7 +177,7 @@ router.patch("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, updated, "Okul bilgileri güncellendi");
     } catch (err) {
-        console.error("❌ /schools PATCH hatası:", err.message);
+        console.error(" /schools PATCH hatası:", err.message);
         return errorResponse(res, "Okul güncellenirken hata oluştu");
     }
 });
@@ -196,7 +196,7 @@ router.delete("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, null, "Okul başarıyla silindi");
     } catch (err) {
-        console.error("❌ /schools DELETE hatası:", err.message);
+        console.error(" /schools DELETE hatası:", err.message);
         return errorResponse(res, "Okul silinirken hata oluştu");
     }
 });
