@@ -78,11 +78,11 @@ export default function Dashboard() {
     if (!stats)
         return (
             <div className="min-h-screen flex items-center justify-center text-red-500">
-                Veri alınamadı 😢
+                Veri alınamadı �
             </div>
         );
 
-    // === 📊 Stat kartları ===
+    // ===  Stat kartları ===
     const cards =
         role === "admin"
             ? [
@@ -97,7 +97,7 @@ export default function Dashboard() {
                 { title: "Veli", value: stats.parents, icon: UserSquare2 },
             ];
 
-    // === 📈 Örnek veri: son 7 gün öğrenci aktivitesi ===
+    // === Örnek veri: son 7 gün öğrenci aktivitesi ===
     const mockStudentActivity = [
         { day: "Pzt", solved: 120 },
         { day: "Sal", solved: 180 },
@@ -108,7 +108,7 @@ export default function Dashboard() {
         { day: "Paz", solved: 100 },
     ];
 
-    // === 🕓 Örnek veri: son işlemler ===
+    // ===  Örnek veri: son işlemler ===
     const mockActivityFeed = [
         { id: 1, text: "Yeni öğrenci eklendi: **Ece Yılmaz**", time: "2 dk önce" },
         { id: 2, text: "Yeni öğretmen oluşturuldu: **Ahmet Kaya (Matematik)**", time: "10 dk önce" },
@@ -169,7 +169,7 @@ export default function Dashboard() {
                 {/* Öğrenci Aktivitesi */}
                 <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                     <h2 className="text-xl font-semibold text-gray-700 mb-4">
-                        📈 Haftalık Öğrenci Aktivitesi
+                         Haftalık Öğrenci Aktivitesi
                     </h2>
                     <ResponsiveContainer width="100%" height={300}>
                         <LineChart data={mockStudentActivity}>
@@ -188,7 +188,7 @@ export default function Dashboard() {
                 {/* Aktivite akışı */}
                 <div className="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                     <h2 className="text-xl font-semibold text-gray-700 mb-4">
-                        🕓 Son İşlemler
+                         Son İşlemler
                     </h2>
                     <ul className="space-y-3">
                         {mockActivityFeed.map((item) => (
@@ -208,20 +208,20 @@ export default function Dashboard() {
                 {/* Hızlı erişimler */}
                 <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 shadow">
                     <h3 className="text-lg font-semibold text-indigo-700 mb-4">
-                        ⚡ Hızlı Erişim
+                         Hızlı Erişim
                     </h3>
                     <QuickAccess
-                        title="👨‍🏫 Öğretmen Yönetimi"
+                        title=" Öğretmen Yönetimi"
                         description="Yeni öğretmen ekle, bilgilerini düzenle veya kaldır."
                         link="/teachers"
                     />
                     <QuickAccess
-                        title="🎓 Öğrenci Raporları"
+                        title=" Öğrenci Raporları"
                         description="Öğrencilerin soru çözümleri ve başarı istatistikleri."
                         link="/students"
                     />
                     <QuickAccess
-                        title="🏫 Okul Listesi"
+                        title=" Okul Listesi"
                         description="Okul detaylarını görüntüle veya düzenle."
                         link="/schools"
                     />
@@ -231,7 +231,7 @@ export default function Dashboard() {
     );
 }
 
-// === 🧱 Stat Card ===
+// ===  Stat Card ===
 function StatCard({ title, value, icon: Icon }) {
     return (
         <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 flex items-center gap-4">
@@ -246,7 +246,7 @@ function StatCard({ title, value, icon: Icon }) {
     );
 }
 
-// === ⚡ Quick Access ===
+// ===  Quick Access ===
 function QuickAccess({ title, description, link }) {
     return (
         <Link
