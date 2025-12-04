@@ -20,7 +20,7 @@ export default function Parents() {
             setParents(res.data.data || []);
         } catch (err) {
             console.error("Veliler yüklenirken hata:", err);
-            setError("Veliler yüklenemedi ❌");
+            setError("Veliler yüklenemedi ");
         } finally {
             setLoading(false);
         }
