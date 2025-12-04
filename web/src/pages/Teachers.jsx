@@ -9,7 +9,7 @@ export default function Teachers() {
 
     const token = localStorage.getItem("accessToken");
 
-    // 🔹 Öğretmenleri getir
+    //  Öğretmenleri getir
     const fetchTeachers = async () => {
         try {
             const res = await axios.get("http://localhost:5000/teachers", {
@@ -18,19 +18,19 @@ export default function Teachers() {
             setTeachers(res.data.data || []);
         } catch (err) {
             console.error("Öğretmenler yüklenirken hata:", err);
-            setError("Öğretmenler yüklenemedi ❌");
+            setError("Öğretmenler yüklenemedi ");
         } finally {
             setLoading(false);
         }
     };
 
-    // 🔹 Yeni öğretmen ekle
+    // Yeni öğretmen ekle
     const handleAdd = async (e) => {
         e.preventDefault();
         if (!newTeacher.name || !newTeacher.subject) return;
 
         try {
-            // 🏫 Manager'ın okul ID'sini al (zorunlu alan)
+            //  Manager'ın okul ID'sini al (zorunlu alan)
             const schoolRes = await axios.get("http://localhost:5000/schools", {
                 headers: { Authorization: `Bearer ${token}` },
             });
@@ -41,7 +41,7 @@ export default function Teachers() {
                 return;
             }
 
-            // 👨‍🏫 Öğretmeni backend'e gönder
+            //  Öğretmeni backend'e gönder
             await axios.post(
                 "http://localhost:5000/teachers",
                 { ...newTeacher, schoolId },
@@ -56,7 +56,7 @@ export default function Teachers() {
         }
     };
 
-    // 🔹 Öğretmen sil
+    //  Öğretmen sil
     const handleDelete = async (id) => {
         if (!window.confirm("Bu öğretmeni silmek istiyor musun?")) return;
         try {
@@ -73,7 +73,7 @@ export default function Teachers() {
         fetchTeachers();
     }, []);
 
-    // 🔹 Yükleniyor ekranı
+    //  Yükleniyor ekranı
     if (loading)
         return (
             <div className="min-h-screen flex items-center justify-center text-gray-500">
@@ -81,7 +81,7 @@ export default function Teachers() {
             </div>
         );
 
-    // 🔹 Hata ekranı
+    //  Hata ekranı
     if (error)
         return (
             <div className="min-h-screen flex items-center justify-center text-red-500">
@@ -89,10 +89,10 @@ export default function Teachers() {
             </div>
         );
 
-    // 🔹 Sayfa içeriği
+    //  Sayfa içeriği
     return (
         <div className="min-h-screen bg-gray-50 p-8">
-            <h1 className="text-3xl font-bold mb-8 text-center">👨‍🏫 Öğretmenler</h1>
+            <h1 className="text-3xl font-bold mb-8 text-center"> Öğretmenler</h1>
 
             {/* Yeni Öğretmen Ekleme Formu */}
             <form
