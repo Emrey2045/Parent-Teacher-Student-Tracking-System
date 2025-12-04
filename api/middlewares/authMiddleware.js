@@ -15,7 +15,7 @@ export const authMiddleware = (req, res, next) => {
     const token = authHeader.split(" ")[1];
 
     try {
-        // 🔑 Doğrudan .env dosyasındaki JWT_SECRET kullanılıyor
+        //  Doğrudan .env dosyasındaki JWT_SECRET kullanılıyor
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         // Token içeriğini request'e ekle
