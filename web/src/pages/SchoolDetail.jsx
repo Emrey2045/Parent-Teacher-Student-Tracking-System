@@ -15,7 +15,7 @@ export default function SchoolDetail() {
     const [newStudent, setNewStudent] = useState({ name: "", grade: "", section: "" });
     const [successMsg, setSuccessMsg] = useState("");
 
-    // 🔹 Okul detaylarını çek
+    //  Okul detaylarını çek
     const fetchSchool = async () => {
         try {
             const res = await axios.get(`http://localhost:5000/schools/${id}`, {
@@ -24,13 +24,13 @@ export default function SchoolDetail() {
             setSchool(res.data.data);
         } catch (err) {
             console.error("Okul detayları alınamadı:", err);
-            setError("Okul bilgileri alınamadı ❌");
+            setError("Okul bilgileri alınamadı ");
         } finally {
             setLoading(false);
         }
     };
 
-    // 🔹 Yeni öğrenci ekle
+    //  Yeni öğrenci ekle
     const handleAddStudent = async (e) => {
         e.preventDefault();
         if (!newStudent.name.trim() || !newStudent.grade.trim()) return;
@@ -43,12 +43,12 @@ export default function SchoolDetail() {
             );
             setShowModal(false);
             setNewStudent({ name: "", grade: "", section: "" });
-            setSuccessMsg("✅ Öğrenci başarıyla eklendi!");
+            setSuccessMsg(" Öğrenci başarıyla eklendi!");
             fetchSchool();
             setTimeout(() => setSuccessMsg(""), 3000);
         } catch (err) {
             console.error("Öğrenci eklenirken hata:", err);
-            setError("❌ Öğrenci eklenemedi, tekrar deneyin.");
+            setError(" Öğrenci eklenemedi, tekrar deneyin.");
         }
     };
 
@@ -63,7 +63,7 @@ export default function SchoolDetail() {
 
     return (
         <div className="p-8 bg-gray-50 min-h-screen">
-            {/* 🔙 Geri Butonu */}
+            {/*  Geri Butonu */}
             <button
                 onClick={() => navigate(-1)}
                 className="flex items-center text-indigo-600 hover:text-indigo-800 mb-6"
@@ -71,7 +71,7 @@ export default function SchoolDetail() {
                 <ArrowLeft size={18} className="mr-1" /> Geri Dön
             </button>
 
-            {/* 🏫 Okul Başlığı */}
+            {/*  Okul Başlığı */}
             <div className="flex justify-between items-center mb-6">
                 <div>
                     <h1 className="text-3xl font-bold text-indigo-700 mb-1">{school.name}</h1>
@@ -85,14 +85,14 @@ export default function SchoolDetail() {
                 </button>
             </div>
 
-            {/* ✅ Başarı Mesajı */}
+            {/* Başarı Mesajı */}
             {successMsg && (
                 <div className="bg-green-100 border border-green-300 text-green-700 p-3 rounded-lg mb-6 text-center">
                     {successMsg}
                 </div>
             )}
 
-            {/* 🏫 Okul Bilgileri */}
+            {/*  Okul Bilgileri */}
             <div className="bg-white p-6 rounded-2xl shadow mb-8">
                 <p className="text-gray-700 mb-2">
                     <strong>Yönetici:</strong> {school.manager?.name || "Atanmamış"}
@@ -105,7 +105,7 @@ export default function SchoolDetail() {
                 </p>
             </div>
 
-            {/* 🎓 Öğrenciler */}
+            {/*  Öğrenciler */}
             <div className="bg-white p-6 rounded-2xl shadow">
                 <h2 className="flex items-center gap-2 text-xl font-semibold text-gray-800 mb-4">
                     <GraduationCap size={20} /> Öğrenciler
@@ -131,7 +131,7 @@ export default function SchoolDetail() {
                 )}
             </div>
 
-            {/* 🧩 Öğrenci Ekle Modal */}
+            {/*  Öğrenci Ekle Modal */}
             {showModal && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
                     <div className="bg-white rounded-2xl p-6 shadow-xl w-full max-w-md relative">
@@ -143,7 +143,7 @@ export default function SchoolDetail() {
                         </button>
 
                         <h2 className="text-xl font-bold text-indigo-700 mb-4">
-                            🎓 Yeni Öğrenci Ekle
+                             Yeni Öğrenci Ekle
                         </h2>
 
                         <form onSubmit={handleAddStudent}>
