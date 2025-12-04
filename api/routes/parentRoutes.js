@@ -50,7 +50,7 @@ router.get("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, parents, "Veliler başarıyla listelendi");
     } catch (err) {
-        console.error("❌ /parents GET hatası:", err.message);
+        console.error(" /parents GET hatası:", err.message);
         return errorResponse(res, "Veliler listelenirken hata oluştu");
     }
 });
@@ -92,7 +92,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, parent, "Veli bilgileri getirildi");
     } catch (err) {
-        console.error("❌ /parents/:id hatası:", err.message);
+        console.error(" /parents/:id hatası:", err.message);
         return errorResponse(res, "Veli bilgileri alınamadı");
     }
 });
@@ -139,7 +139,7 @@ router.post("/", authMiddleware, async (req, res) => {
 
         return successResponse(res, newParent, "Yeni veli başarıyla eklendi");
     } catch (err) {
-        console.error("❌ /parents POST hatası:", err.message);
+        console.error(" /parents POST hatası:", err.message);
         return errorResponse(res, "Veli eklenirken hata oluştu");
     }
 });
@@ -186,7 +186,7 @@ router.patch("/:id", authMiddleware, async (req, res) => {
 
         return successResponse(res, updated, "Veli bilgileri güncellendi");
     } catch (err) {
-        console.error("❌ /parents PATCH hatası:", err.message);
+        console.error(" /parents PATCH hatası:", err.message);
         return errorResponse(res, "Veli güncellenirken hata oluştu");
     }
 });
@@ -217,7 +217,7 @@ router.delete("/:id", authMiddleware, async (req, res) => {
         await prisma.parent.delete({ where: { id: parentId } });
         return successResponse(res, null, "Veli başarıyla silindi");
     } catch (err) {
-        console.error("❌ /parents DELETE hatası:", err.message);
+        console.error(" /parents DELETE hatası:", err.message);
         return errorResponse(res, "Veli silinirken hata oluştu");
     }
 });
