@@ -22,12 +22,12 @@ export default function Login() {
 
             if (data.success) {
                 localStorage.setItem("accessToken", data.data.accessToken);
-                setMessage("✅ Giriş başarılı! Yönlendiriliyor...");
+                setMessage(" Giriş başarılı! Yönlendiriliyor...");
                 setTimeout(() => {
                     window.location.href = "/dashboard";
                 }, 1200);
             } else {
-                setMessage(`❌ ${data.message}`);
+                setMessage(` ${data.message}`);
             }
         } catch (err) {
             setMessage("Sunucuya bağlanılamadı");
