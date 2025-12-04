@@ -22,7 +22,7 @@ export default function Sidebar({ isOpen, setIsOpen, role }) {
 
     return (
         <>
-            {/* 💻 Masaüstü Sidebar */}
+            {/*  Masaüstü Sidebar */}
             <aside
                 className="hidden md:flex fixed top-0 left-0 flex-col bg-indigo-700 text-white w-64 h-full shadow-xl z-30"
             >
@@ -60,7 +60,7 @@ export default function Sidebar({ isOpen, setIsOpen, role }) {
                 </div>
             </aside>
 
-            {/* 📱 Mobil Overlay */}
+            {/*  Mobil Overlay */}
             <div
                 className={`fixed inset-0 bg-black/40 z-40 transition-opacity ${isOpen
                         ? "opacity-100 pointer-events-auto"
@@ -69,7 +69,7 @@ export default function Sidebar({ isOpen, setIsOpen, role }) {
                 onClick={() => setIsOpen(false)}
             ></div>
 
-            {/* 📱 Mobil Sidebar */}
+            {/*  Mobil Sidebar */}
             <aside
                 className={`fixed top-0 left-0 bg-indigo-700 text-white w-64 h-full z-50 transform transition-transform duration-300 md:hidden ${isOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
