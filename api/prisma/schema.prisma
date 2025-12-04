@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/* ===========================
+    OKUL MODELİ
+=========================== */
+model School {
+  id         Int        @id @default(autoincrement())
+  name       String
+  manager    User?      @relation("ManagerSchool", fields: [managerId], references: [id]) //  manager bağlantısı
+  managerId  Int?       @unique
+  students   Student[]
+  teachers   Teacher[]
+}
+
+/* ===========================
+    ÖĞRENCİ MODELİ
+=========================== */
+model Student {
+  id         Int       @id @default(autoincrement())
+  name       String
+  grade      String
+  parent     Parent?   @relation(fields: [parentId], references: [id])
+  parentId   Int?
+  school     School    @relation(fields: [schoolId], references: [id])
+  schoolId   Int
+  createdAt  DateTime  @default(now())
+
+  // Kullanıcı ilişkisi (isteğe bağlı: öğrenci girişi için)
+  user       User?     @relation(fields: [userId], references: [id])
+  userId     Int?      @unique
+}
+
+/* ===========================
+    ÖĞRETMEN MODELİ
+=========================== */
+model Teacher {
+  id         Int       @id @default(autoincrement())
+  name       String
+  subject    String
+  className  String?   //  sınıf (ör: 6B)
+  school     School    @relation(fields: [schoolId], references: [id])
+  schoolId   Int
+
+  // Kullanıcı hesabı bağlantısı
+  user       User?     @relation(fields: [userId], references: [id])
+  userId     Int?      @unique
+}
+
+/* ===========================
+    VELİ MODELİ
+=========================== */
+model Parent {
+  id         Int        @id @default(autoincrement())
+  name       String
+  phone      String?
+  email      String?
+  students   Student[]
+  user       User?      @relation(fields: [userId], references: [id])
+  userId     Int?       @unique
+}
+
+/* ===========================
+   KULLANICI MODELİ
+=========================== */
+model User {
+  id            Int        @id @default(autoincrement())
+  name          String
+  email         String     @unique
+  password      String
+  role          String     @default("student") // admin, manager, teacher, parent, student
+  createdAt     DateTime   @default(now())
+
+  //  Refresh token alanı (JWT yenileme için)
+  refreshToken  String?    @db.Text
+
+  // İlişkiler
+  student        Student?
+  teacher        Teacher?
+  parent         Parent?
+  managedSchool  School?   @relation("ManagerSchool")
+}
