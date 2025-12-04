@@ -11,7 +11,7 @@ export default function StudentDetail() {
     const [student, setStudent] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // 🔹 Tekil öğrenci bilgilerini getir
+    //  Tekil öğrenci bilgilerini getir
     const fetchStudent = async () => {
         try {
             const res = await axios.get(`http://localhost:5000/students/${id}`, {
@@ -39,13 +39,13 @@ export default function StudentDetail() {
     if (!student)
         return (
             <div className="min-h-screen flex items-center justify-center text-red-500">
-                Öğrenci bilgileri alınamadı ❌
+                Öğrenci bilgileri alınamadı 
             </div>
         );
 
     return (
         <div className="min-h-screen bg-gray-50 p-8">
-            {/* 🔙 Geri Dön */}
+            {/*  Geri Dön */}
             <button
                 onClick={() => navigate(-1)}
                 className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 mb-4"
@@ -53,7 +53,7 @@ export default function StudentDetail() {
                 <ArrowLeft size={18} /> Geri Dön
             </button>
 
-            {/* 🧍‍♀️ Başlık */}
+            {/*  Başlık */}
             <div className="flex justify-between items-center mb-6">
                 <div>
                     <h1 className="text-3xl font-bold text-indigo-700">
@@ -65,7 +65,7 @@ export default function StudentDetail() {
                 </div>
             </div>
 
-            {/* 📘 Öğrenci Bilgileri */}
+            {/*  Öğrenci Bilgileri */}
             <div className="bg-white p-6 rounded-2xl shadow mb-6">
                 <p>
                     <strong>Okul:</strong>{" "}
@@ -81,7 +81,7 @@ export default function StudentDetail() {
                 </p>
             </div>
 
-            {/* 📊 Akademik Veriler (ileride buraya raporlar gelecek) */}
+            {/*  Akademik Veriler (ileride buraya raporlar gelecek) */}
             <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-2xl shadow flex flex-col justify-center items-center text-center">
                     <BarChart3 size={32} className="text-indigo-600 mb-3" />
