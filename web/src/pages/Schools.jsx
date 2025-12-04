@@ -12,9 +12,9 @@ export default function Schools() {
     const [successMsg, setSuccessMsg] = useState("");
 
     const token = localStorage.getItem("accessToken");
-    const navigate = useNavigate(); // 👈 yönlendirme için
+    const navigate = useNavigate(); //  yönlendirme için
 
-    // 🔹 Okulları getir
+    //  Okulları getir
     const fetchSchools = async () => {
         try {
             const res = await axios.get("http://localhost:5000/schools", {
@@ -23,13 +23,13 @@ export default function Schools() {
             setSchools(res.data.data || []);
         } catch (err) {
             console.error("Okullar yüklenirken hata:", err);
-            setError("Okullar yüklenemedi ❌");
+            setError("Okullar yüklenemedi ");
         } finally {
             setLoading(false);
         }
     };
 
-    // 🔹 Yeni okul ekle
+    //  Yeni okul ekle
     const handleAddSchool = async (e) => {
         e.preventDefault();
         if (!newSchoolName.trim()) return;
@@ -44,12 +44,12 @@ export default function Schools() {
             );
             setShowModal(false);
             setNewSchoolName("");
-            setSuccessMsg("✅ Okul başarıyla eklendi!");
+            setSuccessMsg(" Okul başarıyla eklendi!");
             fetchSchools();
             setTimeout(() => setSuccessMsg(""), 3000);
         } catch (err) {
             console.error("Okul eklenirken hata:", err);
-            setError("❌ Okul eklenemedi, tekrar deneyin.");
+            setError(" Okul eklenemedi, tekrar deneyin.");
         }
     };
 
@@ -70,7 +70,7 @@ export default function Schools() {
             <div className="flex justify-between items-center mb-8">
                 <div>
                     <h1 className="text-3xl font-bold text-gray-800">
-                        🏫 Okullar
+                         Okullar
                     </h1>
                     <p className="text-gray-500 text-sm mt-1">
                         Okulların listesini görüntüle, yeni okul ekle veya düzenle.
@@ -111,7 +111,7 @@ export default function Schools() {
                     {schools.map((school) => (
                         <div
                             key={school.id}
-                            onClick={() => navigate(`/schools/${school.id}`)} // 👈 tıklanınca yönlen
+                            onClick={() => navigate(`/schools/${school.id}`)} //  tıklanınca yönlen
                             className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition cursor-pointer hover:bg-indigo-50"
                         >
                             <h2 className="text-2xl font-semibold text-indigo-700 mb-3">
@@ -135,7 +135,7 @@ export default function Schools() {
                 </div>
             )}
 
-            {/* 🎯 Modal (Popup) */}
+            {/*  Modal (Popup) */}
             {showModal && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
                     <div className="bg-white rounded-2xl p-6 shadow-xl w-full max-w-md relative animate-fadeIn">
@@ -147,7 +147,7 @@ export default function Schools() {
                         </button>
 
                         <h2 className="text-xl font-bold text-indigo-700 mb-4">
-                            🏫 Yeni Okul Ekle
+                             Yeni Okul Ekle
                         </h2>
 
                         <form onSubmit={handleAddSchool}>
